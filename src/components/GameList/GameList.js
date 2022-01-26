@@ -7,13 +7,25 @@ import Alert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import { Grid } from '@mui/material';
+
+
+
+
+
 function GameList({games, setFilter}) {
   
 return (
 <>
+
+
+<Stack direction="row"
+  justifyContent="center"
+  alignItems="center" >
 <GameFilter setFilter={setFilter}/>
+</Stack>
+
 <Container maxWidth="md">
-<Grid container >
+<Grid container>
 {/* <Stack   direction="column"
   justifyContent="center"
   alignItems="center"
@@ -24,7 +36,7 @@ return (
     games.map(game => {
         return(
           
-            <GameCard content={game}/>
+            <GameCard key={game.id} content={game}/>
 
           
             
