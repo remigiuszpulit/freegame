@@ -5,21 +5,10 @@ import GameList from './GameList';
 function GameListConatiner() {
     const [filter, setFilter] = useState({platform : 'browser', sortBy:'relevance'})
     const {games, error} = useFetch(filter)
-    const onFilterChange = useCallback( (e) => {
-        e.preventDefault();
-        // setFilter({...filter, [e.target.name]: e.target.value})
-        setFilter(current => ({
-            ...current,
-            [e.target.name]: e.target.value
-        }))
-        
-        
-
-    }, [])
-
+   
 
 return (
-<GameList games={games} onFilterChange={onFilterChange}/>
+<GameList games={games} setFilter={setFilter}/>
 );
 }
 

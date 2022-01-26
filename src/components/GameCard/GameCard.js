@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+
 import Typography from '@mui/material/Typography';
 
 
@@ -13,8 +13,8 @@ function GameCard({content: {id, title, thumbnail, short_description, genre}}) {
     const link = `/games/${id}`
 return (
     
-    <Link to={link}>
-        <Card sx={{ maxWidth: 345 }}>
+    <Link to={link} style={{textDecoration: "none", width: "48%", margin: "1%" }}>
+        <Card sx={{ minHeight: "100%" }}>
       <CardMedia
         component="img"
         height="140"

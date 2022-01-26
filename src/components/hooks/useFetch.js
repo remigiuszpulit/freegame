@@ -29,11 +29,21 @@ const useFetch = ({platform, genre, tag, sortBy}) => {
         platform, category: genre, tag, "sort-by": sortBy
     }
         }).then(response => {
-            localCache[`${platform}${genre}${tag}${sortBy}`] = response.data
+            if (response.data.status === 0) {
+                setGames([])
+                
+            }
+            else {
+                
+                localCache[`${platform}${genre}${tag}${sortBy}`] = response.data
             setGames(localCache[`${platform}${genre}${tag}${sortBy}`])
+            }
+            
 
             })
-        .catch(error => setError(error.data))
+        .catch(error => {setError(error.data)
+        setGames([])
+        })
 
     } 
 
